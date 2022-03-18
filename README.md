@@ -1,3 +1,3 @@
 # C-tasks
 
-This repository contains solution for C tasks.
+This repository contains solution of tasks, which I found in books about C language.
