@@ -51,7 +51,6 @@ void mazeTraverse(char maze[][SIZE], int r, int c, int route)
 	if (ahead(maze, &r, &c, route)) {
 		if (toright(maze, r, c, route)) {
 
-			/* A little fix */
 			maze[r][c] = maze[r][c] == 'x' ? '.' : 'X';
 
 			route = chroute(route, LEFT);
