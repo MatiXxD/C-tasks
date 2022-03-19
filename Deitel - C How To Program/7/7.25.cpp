@@ -35,9 +35,9 @@ int main(void)
 	mazeTraverse(maze, 2, 0, RIGHT);
 
 	return 0;
-} /* E0F main */
+} 
 
-/* Traverse a maze founding the exit, if exists */
+
 void mazeTraverse(char maze[][SIZE], int r, int c, int route)
 {
 	maze[r][c] = (maze[r][c] != 'x' && maze[r][c] != 'X') ? 'x' : 'X';
@@ -68,9 +68,9 @@ void mazeTraverse(char maze[][SIZE], int r, int c, int route)
 	mazeTraverse(maze, r, c, route);
 
 
-} /* eof mazeTraverse() */
+} 
 
-/* Print a maze */
+
 void pmaze(char maze[][SIZE])
 {
 	int i, j;
@@ -82,9 +82,9 @@ void pmaze(char maze[][SIZE])
 		printf("\n");
 	}
 
-} /* eof pmaze() */
+} 
 
-/* Ehm.. go ahead :-) */
+
 int ahead(char maze[][SIZE], int* r, int* c, int route)
 {
 	switch (route)
@@ -93,25 +93,25 @@ int ahead(char maze[][SIZE], int* r, int* c, int route)
 		if (maze[*r][*c + 1] == '#')
 			return 1;
 		else
-			++* c;
+			++(*c);
 		break;
 	case DOWN:
 		if (maze[*r + 1][*c] == '#')
 			return 1;
 		else
-			++* r;
+			++(*r);
 		break;
 	case LEFT:
 		if (maze[*r][*c - 1] == '#')
 			return 1;
 		else
-			--* c;
+			--(*c);
 		break;
 	case UP:
 		if (maze[*r - 1][*c] == '#')
 			return 1;
 		else
-			--* r;
+			--(*r);
 		break;
 	default:
 		printf("Where are you going?\n");
@@ -119,9 +119,9 @@ int ahead(char maze[][SIZE], int* r, int* c, int route)
 	}
 
 	return 0;
-} /* eof ahead() */
+} 
 
-/* Check if the wall is to the right side */
+
 int toright(char maze[][SIZE], int r, int c, int route)
 {
 	switch (route)
@@ -149,9 +149,9 @@ int toright(char maze[][SIZE], int r, int c, int route)
 	}
 
 	return 0;
-} /* eof toright() */
+} 
 
-/* Turn to left */
+
 int chroute(int route, int nroute)
 {
 	switch (route) {
@@ -162,8 +162,7 @@ int chroute(int route, int nroute)
 			route = LEFT;
 		else if (nroute == LEFT)
 			route = UP;
-		else if (nroute == UP)
-			; /* don't change */
+		else if (nroute == UP);
 		else
 			route = 0;
 		break;
@@ -174,8 +173,7 @@ int chroute(int route, int nroute)
 			route = UP;
 		else if (nroute == LEFT)
 			route = RIGHT;
-		else if (nroute == UP)
-			; /* don't change */
+		else if (nroute == UP);
 		else
 			route = 0;
 		break;
@@ -186,16 +184,14 @@ int chroute(int route, int nroute)
 			route = RIGHT;
 		else if (nroute == LEFT)
 			route = DOWN;
-		else if (nroute == UP)
-			; /* don't change */
+		else if (nroute == UP);
 		else
 			route = 0;
 		break;
 	case UP:
-		if (nroute == RIGHT || nroute == UP ||
-			nroute == LEFT || nroute == DOWN) {
+		if (nroute == RIGHT || nroute == UP || nroute == LEFT || nroute == DOWN) 
 			route = nroute;
-		}
+	
 		else
 			route = 0;
 		break;
@@ -211,4 +207,4 @@ int chroute(int route, int nroute)
 	}
 
 	return route;
-} /* eof chroute() */
+}
