@@ -10,7 +10,7 @@ int getNumber(int number[]);
 bool checkNextMove(int* strt, int* end, int max);
 
 int main(void) {
-    
+
     int number[NUM_SIZE];
     if (!getNumber(number)) {
 
@@ -27,12 +27,12 @@ int main(void) {
                 fprintf(f, "%c", letters[number[i] * 3 + currentLetters[i]]);
 
             }
-            
+
             fprintf(f, "\n");
             puts("");
 
         } while (checkNextMove(currentLetters, currentLetters + 7, 2));
-        
+
         fclose(f);
 
     }
@@ -40,9 +40,9 @@ int main(void) {
     else
         puts("Wrong input");
 
-    return 0; 
+    return 0;
 
-} 
+}
 
 int getNumber(int number[]) {
 
@@ -68,22 +68,22 @@ int getNumber(int number[]) {
 
 }
 
-bool checkNextMove(int *strt, int *end, int max) {
+bool checkNextMove(int *strt, int *end, int max) {                                    //Enumeration function 
 
-    while ((strt != end) && (*strt == max)) {                       
+    while ((strt != end) && (*strt == max)) {
 
-        *strt = 0;                                                  
-        strt++;                                                     
+        *strt = 0;
+        strt++;
 
     }
- 
+
 
     if (strt == end)
         return false;
 
     else {
 
-        (*strt)++;                                                  
+        (*strt)++;
         return true;
 
     }
