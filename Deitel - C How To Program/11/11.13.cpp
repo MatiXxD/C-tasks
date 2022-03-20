@@ -32,6 +32,8 @@ int main(void) {
             puts("");
 
         } while (checkNextMove(currentLetters, currentLetters + 7, 2));
+        
+        fclose(f);
 
     }
 
