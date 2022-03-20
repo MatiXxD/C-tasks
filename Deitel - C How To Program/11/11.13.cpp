@@ -18,7 +18,7 @@ int main(void) {
         f = fopen("numbers.dat", "w");
 
         char letters[25] = "ABCDEFGHIJKLMNOPRSTUVXYZ";
-        int currentLetters[NUM_SIZE] = { 0, 0, 0, 0, 0, 0, 0 };                          //0 means first letter on the phone button.
+        int currentLetters[NUM_SIZE] = { 0, 0, 0, 0, 0, 0, 0 };                          //0 means first letter on the phone button
         do {
 
             for (int i = 0; i < NUM_SIZE; i++) {
