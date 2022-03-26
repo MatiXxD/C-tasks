@@ -23,7 +23,7 @@ int main(void) {
 
             for (int i = 0; i < NUM_SIZE; i++) {
 
-                printf("%d", currentLetters[i]);                                        //If you want to see how enumeration works
+                printf("%d", currentLetters[i]);                                        //If you want to see how the enumeration works
                 fprintf(f, "%c", letters[number[i] * 3 + currentLetters[i]]);
 
             }
