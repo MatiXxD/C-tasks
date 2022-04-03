@@ -7,7 +7,7 @@
 struct listNode {
 
 	int data;
-	listNode *nextPtr;
+	listNode* nextPtr;
 
 };
 
@@ -17,27 +17,19 @@ typedef listNode* listNodePtr;
 
 void insertNum(listNodePtr* list, int num);
 void printList(listNodePtr list);
-void merge(listNodePtr* list1, listNodePtr* list2);
+void avgAndSum(listNodePtr list);
 
 int main() {
 
 	srand((unsigned int)time(NULL));
 
-	listNodePtr firstList = NULL;
-	listNodePtr secondList = NULL;
+	listNodePtr list = NULL;
 
-	for (int i = 0; i < 15; i++) {
+	for (int i = 0; i < 25; i++)
+		insertNum(&list, rand() % 101);
 
-		insertNum(&firstList, rand() % 15);
-		insertNum(&secondList, rand() % 15);
-
-	}
-
-	printList(firstList);
-	printList(secondList);
-	printf("After: ");
-	merge(&firstList, &secondList);
-	printList(firstList);
+	printList(list);
+	avgAndSum(list);
 
 	return 0;
 
@@ -77,16 +69,15 @@ void insertNum(listNodePtr* list, int num) {
 		}
 
 	}
-	else
-		puts("Not enough memory!");
 
 }
 
 void printList(listNodePtr list) {
 
+	int i = 0;
 	while (list != NULL) {
 
-		printf("%d ", list->data);
+		printf("%d%c", list->data, ++i % 5 != 0 ? ' ' : '\n');
 		list = list->nextPtr;
 
 	}
@@ -95,13 +86,18 @@ void printList(listNodePtr list) {
 
 }
 
-void merge(listNodePtr* list1, listNodePtr* list2) {
+void avgAndSum(listNodePtr list) {
 
-	while (*list2 != NULL) {
+	long sum = 0;
+	int count = 0;
+	while (list != NULL) {
 
-		insertNum(list1, (*list2)->data);
-		*list2 = (*list2)->nextPtr;
+		sum += list->data;
+		count++;
+		list = list->nextPtr;
 
 	}
+
+	printf("Sum of the list is : %ld\nAverage of the list is  : %.2f", sum, ((float)sum) / count);
 
 }

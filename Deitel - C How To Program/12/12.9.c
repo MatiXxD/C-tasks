@@ -6,8 +6,8 @@
 
 struct listNode {
 
-	int data;
-	listNode *nextPtr;
+	char data;
+	listNode* nextPtr;
 
 };
 
@@ -15,36 +15,29 @@ typedef struct listNode listNode;
 typedef listNode* listNodePtr;
 
 
-void insertNum(listNodePtr* list, int num);
+void insertNum(listNodePtr* list, char num);
 void printList(listNodePtr list);
-void merge(listNodePtr* list1, listNodePtr* list2);
+void reverse(listNodePtr list);
 
 int main() {
 
 	srand((unsigned int)time(NULL));
 
-	listNodePtr firstList = NULL;
-	listNodePtr secondList = NULL;
+	listNodePtr list = NULL;
+	char words[] = "qwertyuiopasdfghjklzxcvbnm!@#$%^&*";
 
-	for (int i = 0; i < 15; i++) {
+	for (int i = 0; i < 10; i++)
+		insertNum(&list, words[rand() % 35]);
 
-		insertNum(&firstList, rand() % 15);
-		insertNum(&secondList, rand() % 15);
-
-	}
-
-	printList(firstList);
-	printList(secondList);
-	printf("After: ");
-	merge(&firstList, &secondList);
-	printList(firstList);
-
+	printList(list);
+	reverse(list);
+	;
 	return 0;
 
 }
 
 
-void insertNum(listNodePtr* list, int num) {
+void insertNum(listNodePtr* list, char num) {
 
 	listNodePtr newPtr = (listNodePtr)malloc(sizeof(listNode));
 
@@ -77,16 +70,15 @@ void insertNum(listNodePtr* list, int num) {
 		}
 
 	}
-	else
-		puts("Not enough memory!");
 
 }
 
 void printList(listNodePtr list) {
 
+	int i = 0;
 	while (list != NULL) {
 
-		printf("%d ", list->data);
+		printf("%c ", list->data);
 		list = list->nextPtr;
 
 	}
@@ -95,13 +87,19 @@ void printList(listNodePtr list) {
 
 }
 
-void merge(listNodePtr* list1, listNodePtr* list2) {
+void reverse(listNodePtr list) {
 
-	while (*list2 != NULL) {
+	int i = 0;
+	char arr[10] = { 0 };
 
-		insertNum(list1, (*list2)->data);
-		*list2 = (*list2)->nextPtr;
+	while (list != NULL) {
+
+		arr[i++] = list->data;
+		list = list->nextPtr;
 
 	}
+
+	for (int i = 0; i < 10; i++)
+		printf("%c ", arr[10 - 1 - i]);
 
 }
