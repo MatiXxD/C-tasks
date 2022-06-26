@@ -23,7 +23,7 @@ int main(void){
 
         char* retVal = string_in(str1, str2);
         if(retVal)
-            printf("\"%s\"was found in \"%s\". Result:\n%s\n", 
+            printf("\"%s\" was found in \"%s\". Result:\n%s\n", 
                 str2, str1, retVal);
         else
             printf("\"%s\" wasn't found in \"%s\".\n", str2, str1);
