@@ -7,4 +7,4 @@ List of books
 |Name|Author|Process|
 |---|---|---|
 |C Primer Plus|Stephen Prata|Completed|
-|Harvey Deitel and Paul Deitel|C How to Program|Completed|
+|C How to Program|Harvey Deitel and Paul Deitel|Completed|
